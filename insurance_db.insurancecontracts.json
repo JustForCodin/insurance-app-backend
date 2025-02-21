@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "67b3070bc7e13c732e3047e0"
+  },
+  "contractNumber": "DI-2024-001",
+  "contractDate": {
+    "$date": "2024-07-06T00:00:00.000Z"
+  },
+  "insuranceAmount": 550000,
+  "tariffRate": 0.022,
+  "branch": {
+    "$oid": "67b21ad9f82c7b1daba8fbdf"
+  },
+  "insuranceType": {
+    "$oid": "67b21f69c7e13c732e3047d2"
+  },
+  "agent": {
+    "$oid": "67b30547c7e13c732e3047d8"
+  },
+  "__v": 0
+}]

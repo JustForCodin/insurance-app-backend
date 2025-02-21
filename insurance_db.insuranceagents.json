@@ -1,0 +1,14 @@
+[{
+  "_id": {
+    "$oid": "67b30547c7e13c732e3047d8"
+  },
+  "lastName": "Shevchenko-Novyi",
+  "firstName": "Ihor",
+  "middleName": "Petrovych",
+  "address": "Lviv, Korotka street, 1",
+  "phoneNumber": "+380993334455",
+  "branch": {
+    "$oid": "67b21ad9f82c7b1daba8fbdf"
+  },
+  "__v": 0
+}]

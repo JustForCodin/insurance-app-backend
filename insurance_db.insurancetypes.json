@@ -1,0 +1,8 @@
+[{
+  "_id": {
+    "$oid": "67b21f69c7e13c732e3047d2"
+  },
+  "insuranceTypeName": "Updated vehicle damage insurance",
+  "agentPercentage": 18,
+  "__v": 0
+}]
