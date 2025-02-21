@@ -1,0 +1,8 @@
+[{
+  "_id": {
+    "$oid": "67b86909b176341e3907722a"
+  },
+  "email": "insurance-admin@insuranceapp.com",
+  "password": "$2b$10$Wi7dbu8t/HXEWUpEqaI3v.92gx67fGQE/AZ9IxhHUxi1Eza.kR8H2",
+  "__v": 0
+}]

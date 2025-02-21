@@ -1,0 +1,18 @@
+[{
+  "_id": {
+    "$oid": "67b21ad9f82c7b1daba8fbdf"
+  },
+  "branchName": "Updated Main branch",
+  "address": "Rynok Square st., 24",
+  "phoneNumber": "+380447654321",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67b8ab1c34c7abdd9117e84a"
+  },
+  "branchName": "Healthcare Branch",
+  "address": "Ukraine, Lviv, Zamkova street, 21",
+  "phoneNumber": "+380665432176",
+  "__v": 0
+}]
