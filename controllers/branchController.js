@@ -1,5 +1,14 @@
 import Branch from '../models/Branch.js';
 
+/**
+ * @async
+ * @function getAllBranches
+ * @description Get all branches from the database.
+ * @param {object} request - Express request object.
+ * @param {object} response - Express response object.
+ * @returns {Promise<void>} - Sends a JSON response with all branches or an error message.
+ * @throws {Error} - If there is an error while fetching branches.
+ */
 export async function getAllBranches(request, response) {
     try {
         const branches = await Branch.find();
@@ -9,6 +18,14 @@ export async function getAllBranches(request, response) {
     }
 }
 
+/**
+ * @async
+ * @function getBranchById
+ * @description Get a branch by its ID.
+ * @param {object} request - Express request object.
+ * @param {object} response - Express response object.
+ * @returns {Promise<void>} - Sends a JSON response with the branch data or an error message.
+ */
 export async function getBranchById(request, response) {
     try {
         const branch = await Branch.findById(request.params.id);
@@ -21,6 +38,14 @@ export async function getBranchById(request, response) {
     }
 }
 
+/**
+ * @async
+ * @function createBranch
+ * @description Create a new branch.
+ * @param {object} request - Express request object. Expects branch data in the request body.
+ * @param {object} response - Express response object.
+ * @returns {Promise<void>} - Sends a JSON response with the newly created branch or an error message.
+ */
 export async function createBranch(request, response) {
     const branch = new Branch({
         branchName: request.body.branchName,
@@ -36,6 +61,14 @@ export async function createBranch(request, response) {
     }
 }
 
+/**
+ * @async
+ * @function updateBranch
+ * @description Update an existing branch by its ID.
+ * @param {object} request - Express request object. Expects branch ID in params and updated branch data in the request body.
+ * @param {object} response - Express response object.
+ * @returns {Promise<void>} - Sends a JSON response with the updated branch data or an error message.
+ */
 export async function updateBranch(request, response) {
     try {
         const branch = await Branch.findById(request.params.id);
@@ -60,6 +93,14 @@ export async function updateBranch(request, response) {
     }
 }
 
+/**
+ * @async
+ * @function deleteBranch
+ * @description Delete a branch by its ID.
+ * @param {object} request - Express request object. Expects branch ID in params.
+ * @param {object} response - Express response object.
+ * @returns {Promise<void>} - Sends a JSON response indicating successful deletion or an error message.
+ */
 export async function deleteBranch(request, response) {
     try {
         const branch = await Branch.findByIdAndDelete(request.params.id);
