@@ -1,5 +1,14 @@
 import InsuranceType from "../models/InsuranceType.js";
 
+/**
+ * @async
+ * @function getAllInsuranceTypes
+ * @description Get all insurance types from the database.
+ * @param {object} request - Express request object.
+ * @param {object} response - Express response object.
+ * @returns {Promise<void>} - Sends a JSON response with an array of all insurance types or an error message.
+ * @throws {Error} - If there is an error while fetching insurance types.
+ */
 export async function getAllInsuranceTypes(request, response) {
     try {
         const insuranceTypes = await InsuranceType.find();
@@ -9,6 +18,14 @@ export async function getAllInsuranceTypes(request, response) {
     }
 }
 
+/**
+ * @async
+ * @function getInsuranceTypeById
+ * @description Get an insurance type by its ID.
+ * @param {object} request - Express request object. Expects insurance type ID in params.
+ * @param {object} response - Express response object.
+ * @returns {Promise<void>} - Sends a JSON response with the insurance type data or an error message.
+ */
 export async function getInsuranceTypeById(request, response) {
     try {
         const insuranceType = await InsuranceType.findById(request.params.id);
@@ -21,6 +38,14 @@ export async function getInsuranceTypeById(request, response) {
     }
 }
 
+/**
+ * @async
+ * @function createInsuranceType
+ * @description Create a new insurance type.
+ * @param {object} request - Express request object. Expects insurance type data in the request body.
+ * @param {object} response - Express response object.
+ * @returns {Promise<void>} - Sends a JSON response with the newly created insurance type or an error message.
+ */
 export async function createInsuranceType(request, response) {
     const insuranceType = new InsuranceType({
         insuranceTypeName: request.body.insuranceTypeName,
@@ -35,6 +60,14 @@ export async function createInsuranceType(request, response) {
     }
 }
 
+/**
+ * @async
+ * @function updateInsuranceType
+ * @description Update an existing insurance type by its ID.
+ * @param {object} request - Express request object. Expects insurance type ID in params and updated type data in the request body.
+ * @param {object} response - Express response object.
+ * @returns {Promise<void>} - Sends a JSON response with the updated insurance type data or an error message.
+ */
 export async function updateInsuranceType(request, response) {
     try {
         const insuranceType = await InsuranceType.findById(request.params.id);
@@ -56,6 +89,14 @@ export async function updateInsuranceType(request, response) {
     }
 }
 
+/**
+ * @async
+ * @function deleteInsuranceType
+ * @description Delete an insurance type by its ID.
+ * @param {object} request - Express request object. Expects insurance type ID in params.
+ * @param {object} response - Express response object.
+ * @returns {Promise<void>} - Sends a JSON response indicating successful deletion or an error message.
+ */
 export async function deleteInsuranceType(request, response) {
     try {
         const insuranceType = await InsuranceType.findByIdAndDelete(request.params.id);

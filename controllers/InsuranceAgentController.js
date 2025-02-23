@@ -1,5 +1,14 @@
 import InsuranceAgent from '../models/InsuranceAgent.js';
 
+/**
+ * @async
+ * @function getAllInsuranceAgents
+ * @description Get all insurance agents from the database, populating the 'branch' field with 'branchName'.
+ * @param {object} request - Express request object.
+ * @param {object} response - Express response object.
+ * @returns {Promise<void>} - Sends a JSON response with an array of all insurance agents or an error message.
+ * @throws {Error} - If there is an error while fetching insurance agents.
+ */
 export async function getAllInsuranceAgents(request, response) {
     try {
         const insuranceAgents = await InsuranceAgent
@@ -11,6 +20,14 @@ export async function getAllInsuranceAgents(request, response) {
     }
 }
 
+/**
+ * @async
+ * @function getInsuranceAgentById
+ * @description Get an insurance agent by their ID, populating the 'branch' field with 'branchName'.
+ * @param {object} request - Express request object. Expects agent ID in params.
+ * @param {object} response - Express response object.
+ * @returns {Promise<void>} - Sends a JSON response with the insurance agent data or an error message.
+ */
 export async function getInsuranceAgentById(request, response) {
     try {
         const insuranceAgent = await InsuranceAgent
@@ -25,6 +42,14 @@ export async function getInsuranceAgentById(request, response) {
     }
 }
 
+/**
+ * @async
+ * @function createInsuranceAgent
+ * @description Create a new insurance agent.
+ * @param {object} request - Express request object. Expects insurance agent data in the request body.
+ * @param {object} response - Express response object.
+ * @returns {Promise<void>} - Sends a JSON response with the newly created insurance agent or an error message.
+ */
 export async function createInsuranceAgent(request, response) {
     const insuranceAgent = new InsuranceAgent({
         lastName: request.body.lastName,
@@ -43,6 +68,14 @@ export async function createInsuranceAgent(request, response) {
     }
 }
 
+/**
+ * @async
+ * @function updateInsuranceAgent
+ * @description Update an existing insurance agent by their ID.
+ * @param {object} request - Express request object. Expects insurance agent ID in params and updated agent data in the request body.
+ * @param {object} response - Express response object.
+ * @returns {Promise<void>} - Sends a JSON response with the updated insurance agent data or an error message.
+ */
 export async function updateInsuranceAgent(request, response) {
     try {
         const insuranceAgent = await InsuranceAgent.findById(request.params.id);
@@ -76,6 +109,14 @@ export async function updateInsuranceAgent(request, response) {
     }
 }
 
+/**
+ * @async
+ * @function deleteInsuranceAgent
+ * @description Delete an insurance agent by their ID.
+ * @param {object} request - Express request object. Expects insurance agent ID in params.
+ * @param {object} response - Express response object.
+ * @returns {Promise<void>} - Sends a JSON response indicating successful deletion or an error message.
+ */
 export async function deleteInsuranceAgent(request, response) {
     try {
         const insuranceAgent = await InsuranceAgent.findByIdAndDelete(request.params.id);

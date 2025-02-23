@@ -1,5 +1,14 @@
 import InsuranceContract from '../models/InsuranceContract.js';
 
+/**
+ * @async
+ * @function getAllInsuranceContracts
+ * @description Get all insurance contracts from the database, populating 'branch', 'insuranceType', and 'agent' fields.
+ * @param {object} request - Express request object.
+ * @param {object} response - Express response object.
+ * @returns {Promise<void>} - Sends a JSON response with an array of all insurance contracts or an error message.
+ * @throws {Error} - If there is an error while fetching insurance contracts.
+ */
 export async function getAllInsuranceContracts(request, response) {
     try {
         const insuranceContracts = await InsuranceContract.find()
@@ -12,6 +21,14 @@ export async function getAllInsuranceContracts(request, response) {
     }
 }
 
+/**
+ * @async
+ * @function getInsuranceContractById
+ * @description Get an insurance contract by its ID, populating 'branch', 'insuranceType', and 'agent' fields.
+ * @param {object} request - Express request object. Expects contract ID in params.
+ * @param {object} response - Express response object.
+ * @returns {Promise<void>} - Sends a JSON response with the insurance contract data or an error message.
+ */
 export async function getInsuranceContractById(request, response) {
     try {
         const insuranceContract = await InsuranceContract.findById(request.params.id)
@@ -27,6 +44,14 @@ export async function getInsuranceContractById(request, response) {
     }
 }
 
+/**
+ * @async
+ * @function createInsuranceContract
+ * @description Create a new insurance contract.
+ * @param {object} request - Express request object. Expects insurance contract data in the request body.
+ * @param {object} response - Express response object.
+ * @returns {Promise<void>} - Sends a JSON response with the newly created insurance contract or an error message.
+ */
 export async function createInsuranceContract(request, response) {
     const insuranceContract = new InsuranceContract({
         contractNumber: request.body.contractNumber,
@@ -46,6 +71,14 @@ export async function createInsuranceContract(request, response) {
     }
 }
 
+/**
+ * @async
+ * @function updateInsuranceContract
+ * @description Update an existing insurance contract by its ID.
+ * @param {object} request - Express request object. Expects insurance contract ID in params and updated contract data in the request body.
+ * @param {object} response - Express response object.
+ * @returns {Promise<void>} - Sends a JSON response with the updated insurance contract data or an error message.
+ */
 export async function updateInsuranceContract(request, response) {
     try {
         const insuranceContract = await InsuranceContract.findById(request.params.id);
@@ -79,6 +112,14 @@ export async function updateInsuranceContract(request, response) {
     }
 }
 
+/**
+ * @async
+ * @function deleteInsuranceContract
+ * @description Delete an insurance contract by its ID.
+ * @param {object} request - Express request object. Expects insurance contract ID in params.
+ * @param {object} response - Express response object.
+ * @returns {Promise<void>} - Sends a JSON response indicating successful deletion or an error message.
+ */
 export async function deleteInsuranceContract(request, response) {
     try {
         const insuranceContract = await InsuranceContract.findByIdAndDelete(request.params.id);
@@ -91,6 +132,14 @@ export async function deleteInsuranceContract(request, response) {
     }
 }
 
+/**
+ * @async
+ * @function calculateAgentSalary
+ * @description Calculates the salary for an insurance agent based on a specific insurance contract.
+ * @param {string} insuranceContractId - ID of the insurance contract to calculate salary for.
+ * @returns {Promise<number>} - A Promise that resolves to the calculated agent salary (number).
+ * @throws {Error} - If the insurance contract is not found or if there is an error during salary evaluation.
+ */
 export async function calculateAgentSalary(insuranceContractId) {
     try {
         const insuranceContract = await InsuranceContract.findById(insuranceContractId)
